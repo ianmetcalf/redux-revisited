@@ -1,0 +1,25 @@
+{
+  "name": "redux-revisited",
+  "version": "1.0.0",
+  "description": "Presentation on the redux architecture",
+  "homepage": "http://metcalfbuilt.com/redux-revisited/",
+  "author": "Ian Metcalf",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianmetcalf/redux-revisited.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ianmetcalf/redux-revisited/issues"
+  },
+  "scripts": {
+    "bower": "grunt bower",
+    "start": "grunt serve"
+  },
+  "dependencies": {
+    "grunt": "~1.0.1",
+    "grunt-bower-task": "~0.4.0",
+    "grunt-contrib-connect": "~1.0.2",
+    "grunt-contrib-watch": "~1.0.0"
+  }
+}

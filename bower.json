@@ -1,0 +1,40 @@
+{
+  "name": "redux-revisited",
+  "version": "1.0.0",
+  "description": "Presentation on the redux architecture",
+  "homepage": "http://metcalfbuilt.com/redux-revisited/",
+  "authors": ["Ian Metcalf"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianmetcalf/redux-revisited.git"
+  },
+  "dependencies": {
+    "headjs": "latest",
+    "reveal.js": "latest",
+    "source-sans-pro": "latest"
+  },
+  "exportsOverride": {
+    "reveal.js": {
+      "js": [
+        "js/reveal.js",
+        "plugin/highlight/highlight.js"
+      ],
+      "css": [
+        "css/reveal.css",
+        "lib/css/zenburn.css",
+        "css/print/*.css"
+      ]
+    },
+    "source-sans-pro": [
+      "css/source-sans-pro.css",
+      "fonts/source-sans-pro/*"
+    ]
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ]
+}

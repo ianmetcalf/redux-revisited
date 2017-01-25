@@ -29,6 +29,215 @@
             <small>ian metcalf</small>
           </p>
         </section>
+
+        <section>
+          <h3>No framework you say</h3>
+        </section>
+
+        <section>
+          <h3>So has anything changed</h3>
+        </section>
+
+        <section>
+          <h3>What is Redux</h3>
+        </section>
+
+        <section>
+          <h3>Rethinking App State</h3>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+          <img src="imgs/reduxArchitectureBasic.svg" style="border:none" />
+        </section>
+
+        <section data-transition="fade">
+          <section>
+            <img src="imgs/reduxArchitectureAction.svg" style="border:none" />
+          </section>
+
+          <section>
+            <h3>Action</h3>
+
+            <pre><code class="javascript hljs" data-trim contenteditable>
+{
+  type: 'SOME_ACTION',
+}
+            </code></pre>
+
+            <p>Just a plain object</p>
+          </section>
+
+          <section>
+            <h3>Action</h3>
+
+            <pre><code class="javascript hljs" data-trim contenteditable>
+{
+  type: 'SOME_ACTION',
+  error: false,
+  payload: {
+    prop: 'some prop',
+  },
+  meta: {
+    extra: 'stuff',
+  },
+}
+            </code></pre>
+
+            <p>Conform to <a href="https://github.com/acdlite/flux-standard-action" target="_blank">flux standard action</a> spec</p>
+          </section>
+        </section>
+
+        <section data-transition="fade">
+          <section>
+            <img src="imgs/reduxArchitectureReducer.svg" style="border:none" />
+          </section>
+
+          <section>
+            <h3>Reducer</h3>
+
+            <pre><code class="javascript hljs" data-trim contenteditable>
+function reducer(state = /* initial state */, action) {
+  if (action.type === 'SOME_ACTION') {
+    return /* new state */
+  }
+
+  return state;
+}
+            </code></pre>
+
+            <p>Must be a pure function</p>
+          </section>
+        </section>
+
+        <section data-transition="fade">
+          <section>
+            <img src="imgs/reduxArchitectureState.svg" style="border:none" />
+          </section>
+
+          <section>
+            <h3>State Atom</h3>
+
+            <pre><code class="javascript hljs" data-trim contenteditable>
+const rootReducer = combineReducers({
+  some_list: listReducer,
+  some_prop: propReducer,
+  other_prop: combineReducers({
+    some_nested_prop: nestedPropReducer,
+  }),
+});
+            </code></pre>
+
+            <p>Reducer composition defines shape</p>
+          </section>
+        </section>
+
+        <section data-transition="fade">
+          <section>
+            <img src="imgs/reduxArchitectureView.svg" style="border:none" />
+          </section>
+
+          <section>
+            <h3>View</h3>
+
+            <pre><code class="javascript hljs" data-trim contenteditable>
+function renderView(state) {
+  /* generate new DOM based on state */
+}
+            </code></pre>
+
+            <p>Virtual DOM library (React, Mithril, etc)</p>
+          </section>
+        </section>
+
+        <section data-transition="fade">
+          <section>
+            <img src="imgs/reduxArchitectureSelectors.svg" style="border:none" />
+          </section>
+
+          <section>
+            <h3>Selectors</h3>
+
+            <pre><code class="javascript hljs" data-trim contenteditable>
+function getProp(state) {
+  return state.some_prop;
+}
+            </code></pre>
+
+            <p>Decouples view from state</p>
+          </section>
+
+          <section>
+            <h3>Selectors</h3>
+
+            <pre><code class="javascript hljs" data-trim contenteditable>
+function getCount(state) {
+  return state.some_list.length;
+}
+            </code></pre>
+
+            <p>Centralizes logic for deriving properties</p>
+          </section>
+        </section>
+
+        <section data-transition="fade">
+          <section>
+            <img src="imgs/reduxArchitectureActionCreators.svg" style="border:none" />
+          </section>
+
+          <section>
+            <h3>Action Creators</h3>
+
+            <pre><code class="javascript hljs" data-trim contenteditable>
+function setProp(prop) {
+  return {
+    type: 'SET_PROP',
+    payload: prop,
+  };
+}
+            </code></pre>
+
+            <p>Centralizes logic for creating actions</p>
+          </section>
+
+          <section>
+            <h3>Action Creators</h3>
+
+            <pre><code class="javascript hljs" data-trim contenteditable>
+function fetchEntity(id) {
+  return function (dispatch, getState) {
+    fetch('/api/entity/' + id).then(function (resp) {
+      dispatch({
+        type: 'FETCH_ENTITY',
+        payload: resp,
+      });
+    });
+  };
+}
+            </code></pre>
+
+            <p>Async action using <a href="https://github.com/gaearon/redux-thunk" target="_blank">thunk middleware</a></p>
+          </section>
+        </section>
+
+        <section data-transition="fade-in slide-out">
+          <img src="imgs/reduxArchitectureComplete.svg" style="border:none" />
+        </section>
+
+        <section>
+          <h3>But what about testing</h3>
+        </section>
+
+        <section>
+          <h3>...and hot reloading</h3>
+        </section>
+
+        <section>
+          <h3>Demo time</h3>
+        </section>
+
+        <section>
+          <h3>Questions</h3>
+        </section>
       </div>
     </div>
 
